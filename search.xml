@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>安卓远程控制-完整版</title>
+    <url>/2019/12/02/%E5%AE%89%E5%8D%93%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6-%E5%AE%8C%E6%95%B4%E7%89%88/</url>
+    <content><![CDATA[<h1 id="安卓远程控制-完整版"><a href="#安卓远程控制-完整版" class="headerlink" title="安卓远程控制-完整版"></a>安卓远程控制-完整版</h1><h2 id="安卓远程控制-上"><a href="#安卓远程控制-上" class="headerlink" title="安卓远程控制-上"></a>安卓远程控制-上</h2><p><a href="https://zuoshouzz.github.io/2019/07/14/%E5%AE%89%E5%8D%93%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6-%E4%B8%8A/">https://zuoshouzz.github.io/2019/07/14/%E5%AE%89%E5%8D%93%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6-%E4%B8%8A/</a></p>
+<h2 id="生成后门文件失败"><a href="#生成后门文件失败" class="headerlink" title="生成后门文件失败"></a>生成后门文件失败</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">有朋友在Windows下生成后门文件失败，我排查了一下，可能是由于没有下载jdk导致的，也就是说没有安装java环境</span><br><span class="line"></span><br><span class="line">jdk下载：https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;cn&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151-zhs.html</span><br><span class="line">可能需要登录，邮箱注册一下就行了</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/10/25/1qSr9hIOnkDvbBp.png" alt="cc1.png"></p>
+<p>下载一直下一步安装即可</p>
+<p>到此生成后门文件应该没问题了。</p>
+<h2 id="配合frp内网穿透，访问"><a href="#配合frp内网穿透，访问" class="headerlink" title="配合frp内网穿透，访问"></a>配合frp内网穿透，访问</h2><p>将Lan本地 42474端口映射道vps的42474端口 </p>
+<p>客户端配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr &#x3D; 139.180.197.76</span><br><span class="line">server_port &#x3D; 7000</span><br><span class="line"></span><br><span class="line">[ahmyth]</span><br><span class="line">type &#x3D; tcp</span><br><span class="line">local_ip &#x3D; 127.0.0.1</span><br><span class="line">local_port &#x3D; 42474</span><br><span class="line">remote_port &#x3D; 42474</span><br></pre></td></tr></table></figure>
+
+<p>服务端配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">＃ frps.ini </span><br><span class="line">[common] </span><br><span class="line">bind_port &#x3D; 7000</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/10/25/8qA9OtwBFciaSI5.png" alt="cc3.png"></p>
+<p><img src="https://i.loli.net/2019/10/25/jPe9qRVZtxhYLmf.png" alt="cc2.png"><br><img src="https://i.loli.net/2019/10/25/tcFpKvNefzMkgIC.png" alt="cc4.png"></p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>安卓远控</tag>
+        <tag>AhMyth</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>frp内网穿透的高性能的反向代理应用</title>
+    <url>/2019/10/24/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="frp内网穿透的高性能的反向代理应用"><a href="#frp内网穿透的高性能的反向代理应用" class="headerlink" title="frp内网穿透的高性能的反向代理应用"></a>frp内网穿透的高性能的反向代理应用</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">环境准备：vps(cnetos7)、内网server</span><br><span class="line"></span><br><span class="line">项目地址：https:&#x2F;&#x2F;github.com&#x2F;fatedier&#x2F;frp&#x2F;</span><br><span class="line">中文文档：https:&#x2F;&#x2F;github.com&#x2F;fatedier&#x2F;frp&#x2F;blob&#x2F;master&#x2F;README_zh.md</span><br><span class="line">下载地址：https:&#x2F;&#x2F;github.com&#x2F;fatedier&#x2F;frp&#x2F;releases&#x2F;download&#x2F;v0.29.0&#x2F;frp_0.29.0_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>架构设计</p>
+<p><img src="https://github.com/fatedier/frp/raw/master/doc/pic/architecture.png" alt="FATE (176).png"></p>
+<h2 id="通过SSH访问LAN中的计算机"><a href="#通过SSH访问LAN中的计算机" class="headerlink" title="通过SSH访问LAN中的计算机"></a>通过SSH访问LAN中的计算机</h2><ol>
+<li>修改frps.ini：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">＃ frps.ini </span><br><span class="line">[common] </span><br><span class="line">bind_port &#x3D; 7000</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>启动frps：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;frps -c .&#x2F;frps.ini</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>修改frpc.ini，<code>server_addr</code>是您的frps的服务器IP：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">＃ frpc.ini </span><br><span class="line">[common] </span><br><span class="line">server_addr &#x3D; xxxx</span><br><span class="line">server_port &#x3D; 7000</span><br><span class="line"></span><br><span class="line">[ssh] </span><br><span class="line">type &#x3D; tcp</span><br><span class="line">local_ip &#x3D; 127.0.0.1</span><br><span class="line">local_port &#x3D; 22</span><br><span class="line">remote_port &#x3D; 6000</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>启动frpc：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;frpc -c .&#x2F;frpc.ini</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>假设用户名已测试，则通过ssh连接到LAN中的服务器：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -oPort&#x3D;6000 test@x.x.x.x</span><br></pre></td></tr></table></figure>
+
+<h2 id="通过frps访问LAN中的服务"><a href="#通过frps访问LAN中的服务" class="headerlink" title="通过frps访问LAN中的服务"></a>通过frps访问LAN中的服务</h2><ol>
+<li>修改frps.ini：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">＃ frps.ini </span><br><span class="line">[common] </span><br><span class="line">bind_port &#x3D; 7000</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>启动frps：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;frps -c .&#x2F;frps.ini</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>修改frpc.ini，<code>server_addr</code>是您的frps的服务器IP：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">＃ frpc.ini </span><br><span class="line">[common] </span><br><span class="line">server_addr &#x3D; xxxx</span><br><span class="line">server_port &#x3D; 7000</span><br><span class="line"></span><br><span class="line">[web] </span><br><span class="line">type &#x3D; tcp</span><br><span class="line">local_ip &#x3D; 127.0.0.1</span><br><span class="line">local_port &#x3D; 5566</span><br><span class="line">remote_port &#x3D; 8000</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>启动frpc：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;frpc -c .&#x2F;frpc.ini</span><br><span class="line">python -m SimpleHTTPServer 5566</span><br></pre></td></tr></table></figure>
+
+<h2 id="服务后台运行"><a href="#服务后台运行" class="headerlink" title="服务后台运行"></a>服务后台运行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nohup command &amp;</span><br><span class="line"></span><br><span class="line">nohup .&#x2F;frps -c .&#x2F;frps.ini &amp;</span><br><span class="line">nohup .&#x2F;frpc -c .&#x2F;frpc.ini &amp;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>frp</tag>
+        <tag>内网穿透</tag>
+        <tag>反向代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Goole Hacking 谷歌搜索引擎高级技巧</title>
+    <url>/2019/09/22/Google-Hacking%20%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h1 id="Goole-Hacking-谷歌搜索引擎高级技巧"><a href="#Goole-Hacking-谷歌搜索引擎高级技巧" class="headerlink" title="Goole Hacking 谷歌搜索引擎高级技巧"></a>Goole Hacking 谷歌搜索引擎高级技巧</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">参考：</span><br><span class="line">https:&#x2F;&#x2F;ephrain.net&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;08&#x2F;BH_EU_05-Long-1.pdf</span><br><span class="line">https:&#x2F;&#x2F;www.exploit-db.com&#x2F;google-hacking-database</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">zuoshou</span><br><span class="line">inurl:admin</span><br><span class="line">inurl:&quot;admin.php&quot;</span><br><span class="line">&quot;@youtube.com&quot;</span><br><span class="line">intitle:&quot;左手zuoshou&quot;</span><br><span class="line">身份证 filetype:xls</span><br><span class="line">site:zuoshouzz.github.io</span><br><span class="line">site:zuoshouzz.github.io -aa.zuoshouzz.github.io</span><br><span class="line">intitle:&quot;Index Of&quot;</span><br><span class="line">link:zuoshouzz.github.io</span><br><span class="line">inurl:admin filetype:php</span><br><span class="line">inurl:8080 -intext:8080</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/09/19/eJFZvML3sCh8HnD.png" alt="g1.png"></p>
+<p><img src="https://i.loli.net/2019/09/19/dDWuCKZTAXRz2oi.png" alt="g2.png"></p>
+<p><img src="https://i.loli.net/2019/09/19/iL2IaMFzcROYPES.png" alt="g3.png"></p>
+<p><img src="https://i.loli.net/2019/09/19/e7R4YmEA1ZHV2sr.png" alt="g4.png"></p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>google</tag>
+        <tag>搜索引擎</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>科学上网必备网站</title>
+    <url>/2019/07/30/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E5%BF%85%E5%A4%87%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<p>没有节点依然坚强</p>
+<p><a href="https://jsproxy.ga/" target="_blank" rel="noopener">https://jsproxy.ga/</a></p>
+<p><a href="https://jsproxy-demo.cf" target="_blank" rel="noopener">https://jsproxy-demo.cf</a></p>
+<p><a href="https://github.com/EtherDream/jsproxy" target="_blank" rel="noopener">https://github.com/EtherDream/jsproxy</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>安卓远程控制-上</title>
+    <url>/2019/07/14/%E5%AE%89%E5%8D%93%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6-%E4%B8%8A/</url>
+    <content><![CDATA[<p>项目地址：<a href="https://github.com/AhMyth/AhMyth-Android-RAT" target="_blank" rel="noopener">https://github.com/AhMyth/AhMyth-Android-RAT</a></p>
+<p>下载地址：<a href="https://github.com/AhMyth/AhMyth-Android-RAT/releases" target="_blank" rel="noopener">https://github.com/AhMyth/AhMyth-Android-RAT/releases</a></p>
+<p><img src="https://i.loli.net/2019/07/14/5d2a9dc4f2a7625537.png" alt="c1.png"></p>
+<p>32位系统下载win32版本</p>
+<p>64位系统下载win64版本</p>
+<p>一直下一步安装即可</p>
+<p>第一步：启动程序</p>
+<p><img src="https://i.loli.net/2019/07/14/5d2a9f8fbb7d927219.png" alt="c2.png"></p>
+<p>第二步：apk配置</p>
+<p><img src="https://i.loli.net/2019/07/14/5d2a9f900dc6a97326.png" alt="c3.png"></p>
+<p>生成apk</p>
+<p><img src="https://i.loli.net/2019/07/14/5d2acca41016666419.png" alt="c4.png"></p>
+<p>第三步：本地配置</p>
+<p>监听端口</p>
+<p><img src="https://i.loli.net/2019/07/14/5d2acd1972e2b13645.png" alt="c5.png"></p>
+<p>第四步：安装apk</p>
+<p>使用夜深模拟器打开安卓模拟器，然后安卓apk</p>
+<p><img src="https://i.loli.net/2019/07/14/5d2ad9f62cd3c13228.png" alt="c6.png"></p>
+<p><img src="https://i.loli.net/2019/07/14/5d2ad9f66469e41654.png" alt="c8.png"></p>
+<p><img src="https://i.loli.net/2019/07/14/5d2ad9f60d25133883.png" alt="c7.png"></p>
+<p>第五步：远程控制</p>
+<p><img src="https://i.loli.net/2019/07/14/5d2ada8c28a3251366.png" alt="c9.png"></p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>远程控制</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>追剧必备网站</title>
+    <url>/2019/07/06/%E8%BF%BD%E5%89%A7%E5%BF%85%E5%A4%87%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<p>人人视频：<a href="https://rr.tv/" target="_blank" rel="noopener">https://rr.tv/</a></p>
+<p>低端影视：<a href="http://ddrk.me/" target="_blank" rel="noopener">http://ddrk.me/</a></p>
+<p>5杀电影网：<a href="https://www.lol5s.com/" target="_blank" rel="noopener">https://www.lol5s.com/</a></p>
+<p>奈菲影视：<a href="https://www.nfmovies.com/" target="_blank" rel="noopener">https://www.nfmovies.com/</a></p>
+<p>gimy：<a href="https://gimy.tv/" target="_blank" rel="noopener">https://gimy.tv/</a></p>
+<p>91美剧网：<a href="https://91mjw.com/" target="_blank" rel="noopener">https://91mjw.com/</a></p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>追剧必备网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>海豚湾机场之初体验</title>
+    <url>/2019/06/22/%E6%B5%B7%E8%B1%9A%E6%B9%BE%E6%9C%BA%E5%9C%BA%E4%B9%8B%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<h1 id="海豚湾机场之初体验"><a href="#海豚湾机场之初体验" class="headerlink" title="海豚湾机场之初体验"></a>海豚湾机场之初体验</h1><h2 id="网站地址"><a href="#网站地址" class="headerlink" title="网站地址"></a>网站地址</h2><p>永久访问域名: 海豚湾.COM(需全局代理模式访问) </p>
+<p>当前域名: HITUN.IO</p>
+<h2 id="注册地址"><a href="#注册地址" class="headerlink" title="注册地址"></a>注册地址</h2><p><a href="https://hitun.io//auth/register?affid=53861" target="_blank" rel="noopener">https://hitun.io//auth/register?affid=53861</a></p>
+<h2 id="充值"><a href="#充值" class="headerlink" title="充值"></a>充值</h2><p>支持 支付宝、微信、充值码</p>
+<h2 id="套餐购买"><a href="#套餐购买" class="headerlink" title="套餐购买"></a>套餐购买</h2><p>1.套餐分为月、季、年及大小海豚</p>
+<h2 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h2><p>香港、日本、台湾、深圳、美国、新加坡</p>
+<h2 id="售后"><a href="#售后" class="headerlink" title="售后"></a>售后</h2><p>工单系统</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>1.满足日常工作、学习；</p>
+<p>2.速度挺好，几十毫秒延迟；</p>
+<p>3.稳定性也不错，高峰期无影响。</p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>ss</tag>
+        <tag>ssr</tag>
+        <tag>机场</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>怎么制作自己的SSR订阅地址?详解篇</title>
+    <url>/2019/05/13/%E6%80%8E%E4%B9%88%E5%88%B6%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84SSR%E8%AE%A2%E9%98%85%E5%9C%B0%E5%9D%80-%E8%AF%A6%E8%A7%A3%E7%AF%87/</url>
+    <content><![CDATA[<h1 id="怎么制作自己的SSR订阅地址-详解篇"><a href="#怎么制作自己的SSR订阅地址-详解篇" class="headerlink" title="怎么制作自己的SSR订阅地址?详解篇"></a>怎么制作自己的SSR订阅地址?详解篇</h1><p>1.访问ssr订阅地址<a href="https://raw.githubusercontent.com/ssrsub/ssr/master/ssrsub" target="_blank" rel="noopener">https://raw.githubusercontent.com/ssrsub/ssr/master/ssrsub</a>(复制页面返回内容A)</p>
+<p>2.打开base64解码网站<a href="https://www.base64decode.org/" target="_blank" rel="noopener">https://www.base64decode.org/</a>（其他base64解码网站也可以），将A粘贴进去，然后点击解码；</p>
+<p>3.可以看到一条条ssr的链接地址，复制几条出来做测试；</p>
+<p>4.制作第一种SSR订阅地址(修改 group 字段，变成自己的分组 ，自己的订阅)</p>
+<p>5.制作第二种SSR订阅地址(直接汇总ssr链接，然后base64编码)</p>
+<p>6.如果链接中带有 _ 和 -  ，把字符 _ 和 - 分别变成 / 和 +  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssr:&#x2F;&#x2F;MTM5LjE2Mi44OC4xNjY6MTMxMjU6b3JpZ2luOmFlcy0yNTYtY2ZiOnBsYWluOmRrRmxRVmhIV0Vwc00weFQvP3JlbWFya3M9VTFOU1ZFOVBURl9tbDZYbW5Ld3RRMmhwWW1FNk1EQSZncm91cD1WMWRYTGxOVFVsUlBUMHd1UTA5Tg</span><br><span class="line">ssr:&#x2F;&#x2F;MTcyLjEwNC44OS41MjoyOTEwODpvcmlnaW46YWVzLTI1Ni1jZmI6cGxhaW46Y0cxeWNYaHFaelpVUTNwVC8_cmVtYXJrcz1VMU5TVkU5UFRGX21sNlhtbkt3dFZHOXJlVzg2TURFJmdyb3VwPVYxZFhMbE5UVWxSUFQwd3VRMDlO</span><br><span class="line">ssr:&#x2F;&#x2F;MTM5LjE2Mi4xMTIuMTQ2OjQ0OTE3Om9yaWdpbjphZXMtMjU2LWNmYjpwbGFpbjpNRzFsYXpsd1oycGxUV0ZaLz9vYmZzcGFyYW09JnByb3RvcGFyYW09JnJlbWFya3M9VkdWc1pWQnNkWE1nVTJWeWRtVnlJREUyTWcmZ3JvdXA9VkdWc1pWQnNkWE5HY21WbFUxTlM</span><br><span class="line">ssr:&#x2F;&#x2F;MTM5LjE2Mi4xMTIuMTQ2OjQ0OTE4Om9yaWdpbjphZXMtMjU2LWNmYjpwbGFpbjpNRzFsYXpsd1oycGxUV0ZaLz9vYmZzcGFyYW09JnByb3RvcGFyYW09JnJlbWFya3M9VkdWc1pWQnNkWE1nVTJWeWRtVnlJREUyTXcmZ3JvdXA9VkdWc1pWQnNkWE5HY21WbFUxTlM</span><br></pre></td></tr></table></figure>
+
+<p>7.继续解码 ssr:// 后面的字符串，效果如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">139.162.88.166:13125:origin:aes-256-cfb:plain:dkFlQVhHWEpsM0xT&#x2F;?remarks&#x3D;U1NSVE9PTF_ml6XmnKwtQ2hpYmE6MDA&amp;group&#x3D;V1dXLlNTUlRPT0wuQ09N</span><br><span class="line">172.104.89.52:29108:origin:aes-256-cfb:plain:cG1ycXhqZzZUQ3pT&#x2F;?remarks&#x3D;U1NSVE9PTF_ml6XmnKwtVG9reW86MDE&amp;group&#x3D;V1dXLlNTUlRPT0wuQ09N</span><br><span class="line">139.162.112.146:44917:origin:aes-256-cfb:plain:MG1lazlwZ2plTWFZ&#x2F;?obfsparam&#x3D;&amp;protoparam&#x3D;&amp;remarks&#x3D;VGVsZVBsdXMgU2VydmVyIDE2Mg&amp;group&#x3D;VGVsZVBsdXNGcmVlU1NS</span><br><span class="line">139.162.112.146:44918:origin:aes-256-cfb:plain:MG1lazlwZ2plTWFZ&#x2F;?obfsparam&#x3D;&amp;protoparam&#x3D;&amp;remarks&#x3D;VGVsZVBsdXMgU2VydmVyIDE2Mw&amp;group&#x3D;VGVsZVBsdXNGcmVlU1NS</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>ssr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分享自建SS/SSR/VPN节点</title>
+    <url>/2019/05/02/%E5%88%86%E4%BA%AB%E8%87%AA%E5%BB%BASS-SSR-VPN%E8%8A%82%E7%82%B9/</url>
+    <content><![CDATA[<p>Centos7 64位</p>
+<p>搬瓦工注册链接：<a href="https://bwh88.net/aff.php?aff=24655" target="_blank" rel="noopener">https://bwh88.net/aff.php?aff=24655</a></p>
+<p>Vultr注册链接：<a href="https://www.vultr.com/?ref=8049244-4F" target="_blank" rel="noopener">https://www.vultr.com/?ref=8049244-4F</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">yum install firewalld firewall-config</span><br><span class="line">vi &#x2F;usr&#x2F;lib&#x2F;firewalld&#x2F;services&#x2F;ssh.xml</span><br><span class="line">firewall-cmd --permanent --add-service&#x3D;ssh</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">systemctl start firewalld</span><br><span class="line"></span><br><span class="line">yum install wget</span><br><span class="line">wget -N --no-check-certificate https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;zuoshouzz&#x2F;zuoshouzz.github.io&#x2F;master&#x2F;doc&#x2F;ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br><span class="line"></span><br><span class="line">vi &#x2F;usr&#x2F;lib&#x2F;firewalld&#x2F;services&#x2F;ss.xml</span><br><span class="line"></span><br><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;service&gt;</span><br><span class="line">  &lt;short&gt;SS&lt;&#x2F;short&gt;</span><br><span class="line">  &lt;description&gt;Shadowsocks port</span><br><span class="line">  &lt;&#x2F;description&gt;</span><br><span class="line">  &lt;port protocol&#x3D;&quot;tcp&quot; port&#x3D;&quot;443&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;service&gt;</span><br><span class="line"></span><br><span class="line">firewall-cmd --permanent --add-service&#x3D;ss</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;tcp-nanqinlang&#x2F;general&#x2F;master&#x2F;General&#x2F;CentOS&#x2F;bash&#x2F;tcp_nanqinlang-1.3.2.sh &amp;&amp; bash tcp_nanqinlang-1.3.2.sh</span><br><span class="line"></span><br><span class="line">wget http:&#x2F;&#x2F;download.strongswan.org&#x2F;strongswan.tar.gz &amp;&amp; tar zxvf strongswan* </span><br><span class="line">cd strongswan*</span><br><span class="line">yum install -y make gcc gmp-devel openssl openssl-devel</span><br><span class="line">.&#x2F;configure --sysconfdir&#x3D;&#x2F;etc --disable-sql --disable-mysql --disable-ldap --enable-dhcp --enable-eap-identity --enable-eap-mschapv2 --enable-md4 --enable-xauth-eap --enable-eap-peap --enable-eap-md5 --enable-openssl --enable-shared --enable-unity --enable-eap-tls   --enable-eap-ttls --enable-eap-tnc --enable-eap-dynamic --enable-addrblock --enable-radattr --enable-nat-transport --enable-kernel-netlink --enable-kernel-libipsec</span><br><span class="line">make &amp;&amp; sudo make install</span><br><span class="line"></span><br><span class="line">vi &#x2F;etc&#x2F;ipsec.conf</span><br><span class="line"></span><br><span class="line">config setup</span><br><span class="line">    uniqueids&#x3D;never</span><br><span class="line">conn IPsec_xauth_psk</span><br><span class="line">    keyexchange&#x3D;ikev1</span><br><span class="line">    left&#x3D;SERVER</span><br><span class="line">    leftauth&#x3D;psk</span><br><span class="line">    leftsubnet&#x3D;0.0.0.0&#x2F;0</span><br><span class="line">    right&#x3D;%any</span><br><span class="line">    rightauth&#x3D;psk</span><br><span class="line">    rightauth2&#x3D;xauth</span><br><span class="line">    rightsourceip&#x3D;10.0.0.0&#x2F;24</span><br><span class="line">    auto&#x3D;add</span><br><span class="line"></span><br><span class="line">conn %default</span><br><span class="line">    keyexchange&#x3D;ikev1</span><br><span class="line">    dpdaction&#x3D;hold</span><br><span class="line">    dpddelay&#x3D;600s</span><br><span class="line">    dpdtimeout&#x3D;5s</span><br><span class="line">    lifetime&#x3D;24h</span><br><span class="line">    ikelifetime&#x3D;240h</span><br><span class="line">    rekey&#x3D;no</span><br><span class="line">    left&#x3D;SERVER</span><br><span class="line">    leftsubnet&#x3D;0.0.0.0&#x2F;0</span><br><span class="line">    leftcert&#x3D;vpnHostCert.pem</span><br><span class="line">    leftsendcert&#x3D;always</span><br><span class="line">    right&#x3D;%any</span><br><span class="line">    rightdns&#x3D;8.8.8.8</span><br><span class="line">    rightsourceip&#x3D;10.0.0.0&#x2F;24</span><br><span class="line">    </span><br><span class="line">vi &#x2F;etc&#x2F;ipsec.secrets</span><br><span class="line"></span><br><span class="line">: PSK &quot;zuoshou&quot; # 这里 SECRET 可随意替换成你想要的密钥</span><br><span class="line">zuoshou : XAUTH &quot;zuoshouzz.github.io&quot;</span><br><span class="line"></span><br><span class="line">ipsec start</span><br><span class="line">vi &#x2F;usr&#x2F;lib&#x2F;firewalld&#x2F;services&#x2F;ipsec.xml</span><br><span class="line"></span><br><span class="line">firewall-cmd --permanent --add-service&#x3D;ipsec</span><br><span class="line">firewall-cmd --permanent --add-masquerade</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">vi &#x2F;etc&#x2F;rc.local</span><br><span class="line"></span><br><span class="line">ipsec start</span><br><span class="line"></span><br><span class="line">chmod +x &#x2F;etc&#x2F;rc.local</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>ss</tag>
+        <tag>ssr</tag>
+        <tag>VPN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何自动批量下载火山小视频无水印视频 ？手把手教会你</title>
+    <url>/2019/04/28/%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E7%81%AB%E5%B1%B1%E5%B0%8F%E8%A7%86%E9%A2%91%E6%97%A0%E6%B0%B4%E5%8D%B0%E8%A7%86%E9%A2%91-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BC%9A%E4%BD%A0/</url>
+    <content><![CDATA[<p>项目地址：<a href="https://github.com/loadchange/hotsoon-crawler" target="_blank" rel="noopener">https://github.com/loadchange/hotsoon-crawler</a></p>
+<p>和抖音方法差不多，如果不清楚可以看一下以前的视频介绍</p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>火山小视频</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vultr与搬瓦工VPS产品对比哪家强？左手告诉你</title>
+    <url>/2019/04/25/Vultr%E4%B8%8E%E6%90%AC%E7%93%A6%E5%B7%A5VPS%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94%E5%93%AA%E5%AE%B6%E5%BC%BA%EF%BC%9F%E5%B7%A6%E6%89%8B%E5%91%8A%E8%AF%89%E4%BD%A0/</url>
+    <content><![CDATA[<h1 id="Vultr与搬瓦工VPS产品对比哪家强？左手告诉你"><a href="#Vultr与搬瓦工VPS产品对比哪家强？左手告诉你" class="headerlink" title="Vultr与搬瓦工VPS产品对比哪家强？左手告诉你"></a>Vultr与搬瓦工VPS产品对比哪家强？左手告诉你</h1><p><img src="https://i.loli.net/2019/04/25/5cc1d8faa21f3.png" alt="b7.png"></p>
+<p>搬瓦工注册链接：<a href="https://bwh88.net/aff.php?aff=24655" target="_blank" rel="noopener">https://bwh88.net/aff.php?aff=24655</a></p>
+<p>Vultr注册链接：<a href="https://www.vultr.com/?ref=8049244-4F" target="_blank" rel="noopener">https://www.vultr.com/?ref=8049244-4F</a></p>
+<p>结论：</p>
+<p>1.希望安全、稳定的选择搬瓦工</p>
+<p>2.需要经常更换vps节点或者ip的选择Vultr</p>
+<p><img src="https://i.loli.net/2019/04/25/5cc1bd8ae30e9.png" alt="b1.png"><br><img src="https://i.loli.net/2019/04/25/5cc1bd8af2ed3.png" alt="b2.png"><br><img src="https://i.loli.net/2019/04/25/5cc1bd8ae5fff.png" alt="b3.png"><br><img src="https://i.loli.net/2019/04/25/5cc1bd8ae763c.png" alt="b5.png"></p>
+<p>安装好之后，邮件通知</p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>搬瓦工</tag>
+        <tag>Vultr</tag>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>免费获取SS/SSR节点科学上网</title>
+    <url>/2019/04/22/%E5%85%8D%E8%B4%B9%E8%8E%B7%E5%8F%96SS-SSR%E8%8A%82%E7%82%B9%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
+    <content><![CDATA[<h1 id="免费获取SS-SSR节点科学上网"><a href="#免费获取SS-SSR节点科学上网" class="headerlink" title="免费获取SS/SSR节点科学上网"></a>免费获取SS/SSR节点科学上网</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ss&#x2F;ssr免费节点</span><br><span class="line">https:&#x2F;&#x2F;www.ssrtool.com&#x2F;tool&#x2F;share_ssr</span><br><span class="line">https:&#x2F;&#x2F;free-ss.site&#x2F;</span><br><span class="line">----</span><br><span class="line">ssr订阅地址</span><br><span class="line">https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ssrsub&#x2F;ssr&#x2F;master&#x2F;ssrsub</span><br><span class="line">https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;AmazingDM&#x2F;sub&#x2F;master&#x2F;ssrshare.com</span><br><span class="line">https:&#x2F;&#x2F;yzzz.ml&#x2F;freessr&#x2F;</span><br><span class="line">https:&#x2F;&#x2F;aoxuaudaadaoeu.herokuapp.com&#x2F;subscribe</span><br><span class="line">---</span><br><span class="line">搬瓦工注册：https:&#x2F;&#x2F;bwh88.net&#x2F;aff.php?aff&#x3D;24655</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>SS</tag>
+        <tag>SSR</tag>
+        <tag>科学上网</tag>
+        <tag>订阅地址</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一键安装SS/SSR Shadowsocks科学上网</title>
+    <url>/2019/04/19/%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85SS-SSR-Shadowsocks%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
+    <content><![CDATA[<h1 id="一键安装SS-SSR-Shadowsocks科学上网"><a href="#一键安装SS-SSR-Shadowsocks科学上网" class="headerlink" title="一键安装SS/SSR Shadowsocks科学上网"></a>一键安装SS/SSR Shadowsocks科学上网</h1><h1 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h1><p>CentOS 6+ /Debian 6+ / Ubuntu 14.04 + </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">搬瓦工注册链接：https:&#x2F;&#x2F;bwh88.net&#x2F;aff.php?aff&#x3D;24655</span><br><span class="line"></span><br><span class="line">Centos7 清空防火墙</span><br><span class="line">iptables -F</span><br></pre></td></tr></table></figure>
+
+<h1 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h1><p>切换至root账号，如果已经是root账号登录，忽略此步骤</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+
+<p>下载执行()</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install wget</span><br><span class="line">wget -N --no-check-certificate https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;zuoshouzz&#x2F;zuoshouzz.github.io&#x2F;master&#x2F;doc&#x2F;ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
+
+<p>以上已完成ss/ssr安装</p>
+<p>客户端下载</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Windows：https:&#x2F;&#x2F;github.com&#x2F;shadowsocksrr&#x2F;shadowsocksr-csharp&#x2F;releases&#x2F;download&#x2F;4.9.0&#x2F;ShadowsocksR-win-4.9.0.zip</span><br><span class="line">Mac：https:&#x2F;&#x2F;github.com&#x2F;qinyuhang&#x2F;ShadowsocksX-NG-R&#x2F;releases&#x2F;download&#x2F;1.4.3-R8-build3&#x2F;ShadowsocksX-NG-R8.dmg</span><br><span class="line">安卓：https:&#x2F;&#x2F;github.com&#x2F;shadowsocksrr&#x2F;shadowsocksr-android&#x2F;releases&#x2F;download&#x2F;3.5.4&#x2F;shadowsocksr-android-3.5.4.apk</span><br><span class="line">ios：https:&#x2F;&#x2F;youtu.be&#x2F;BbmpmlTvEZ8</span><br></pre></td></tr></table></figure>
+
+<p>基础操作</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">启动 ShadowsocksR：&#x2F;etc&#x2F;init.d&#x2F;ssr start</span><br><span class="line">停止 ShadowsocksR：&#x2F;etc&#x2F;init.d&#x2F;ssr stop</span><br><span class="line">重启 ShadowsocksR：&#x2F;etc&#x2F;init.d&#x2F;ssr restart</span><br><span class="line">查看 ShadowsocksR状态：&#x2F;etc&#x2F;init.d&#x2F;ssr status</span><br></pre></td></tr></table></figure>
+
+<p>配置文件位置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">安装目录：&#x2F;usr&#x2F;local&#x2F;shadowsocksr</span><br><span class="line">配置文件：&#x2F;etc&#x2F;shadowsocksr&#x2F;user-config.json</span><br></pre></td></tr></table></figure>
+
+<p>添加重启定时任务</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br><span class="line"></span><br><span class="line">10 2 * * * &#x2F;etc&#x2F;init.d&#x2F;ssr restart</span><br><span class="line"># 这个代表 每天2点10分重启一次 ShadowsocksR</span><br></pre></td></tr></table></figure>
+
+<p>安装魔改BBR</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;tcp-nanqinlang&#x2F;general&#x2F;master&#x2F;General&#x2F;CentOS&#x2F;bash&#x2F;tcp_nanqinlang-1.3.2.sh &amp;&amp; bash tcp_nanqinlang-1.3.2.sh</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>ss</tag>
+        <tag>ssr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Macbook利用双网卡同时连内外网</title>
+    <url>/2019/04/17/Macbook%E5%88%A9%E7%94%A8%E5%8F%8C%E7%BD%91%E5%8D%A1%E5%90%8C%E6%97%B6%E8%BF%9E%E5%86%85%E5%A4%96%E7%BD%91/</url>
+    <content><![CDATA[<h1 id="Macbook利用双网卡同时连内外网"><a href="#Macbook利用双网卡同时连内外网" class="headerlink" title="Macbook利用双网卡同时连内外网"></a>Macbook利用双网卡同时连内外网</h1><p>情景：很多单位为了安全，需要使用网线连接内网，此时不能连接外网，无线可以连接外网，却又不能完成部分在内网才能完成的操作。</p>
+<p>连接双网卡<br>en7 –&gt; 有线网卡<br>en0 –&gt; 无线网卡<br>插上网线之后，我的表是这样的，当前的状况是连的上内网，连不上外网</p>
+<h1 id="查看一下路由表"><a href="#查看一下路由表" class="headerlink" title="查看一下路由表"></a>查看一下路由表</h1><p>打开终端，输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">netstat -rt</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/04/17/5cb6db5000ac0.png" alt="a1.png"></p>
+<p>解释一下这其中的参数<br>第一列：Destination，目标地，意思是：后面的参数代表着，如果前往这个ip的话，应该如何分配网关，网卡等，以及状态信息，都是针对前往这个ip的情况的<br>第二列：Gateway，网关，意思是：如果需要前往这个ip，应该从哪个网关过去，这里有两种情况，即有内外网用不同网关的，也有内外网用相同网关的。<br>第三列：Flags，标志位，和本文的重点无关，暂略<br>第四列：Refs，可以简单的理解为重要性，相同的ip，相同的网关，用这个重要性来区分使用哪个网卡<br>第五列：Use，使用情况<br>第六列：Netif，网卡号，net interface，如图，我有两张网卡，这里的en0，en10分别代表了我的两张网卡，不同的机器名称可能不同，但是意思是一样的，至于那张是无线网卡，需要自己去区分<br>第七列：Expire，和本文的重点无关，暂略</p>
+<p>  根据表上看到，default目标两张网卡可以走，但是refs下看到en7的优先级比较高，根据我的状况，外网地址都无法访问，外网地址属于default部分，所以得出判断en7是有线网卡，因为它的优先级较高导致去外网的ip都由有线网卡进行转发，所以上不了网了，那么自然，en0就是无线网卡</p>
+<h1 id="开始修改"><a href="#开始修改" class="headerlink" title="开始修改"></a>开始修改</h1><h2 id="第一步：修改无线网卡的优先级，使之大于有线网卡"><a href="#第一步：修改无线网卡的优先级，使之大于有线网卡" class="headerlink" title="第一步：修改无线网卡的优先级，使之大于有线网卡"></a>第一步：修改无线网卡的优先级，使之大于有线网卡</h2><p>​    进入系统偏好设置，网络，左下角的齿轮，更改服务顺序，拖动wifi到有线网卡上面就可以了，此时变成的状态是连着无线，插着网卡，以无线网卡优先，即上不了内网，可以上外网（苹果默认的是插上有线网络有线优先）</p>
+<p><img src="https://i.loli.net/2019/04/17/5cb6e39e81620.png" alt="a2.png"></p>
+<p><img src="https://i.loli.net/2019/04/17/5cb6e3a882f9a.png" alt="a3.png"></p>
+<h2 id="第二步：添加路由使内网访问正常"><a href="#第二步：添加路由使内网访问正常" class="headerlink" title="第二步：添加路由使内网访问正常"></a>第二步：添加路由使内网访问正常</h2><p>1.公司里内外网分两个路由<br>此时只需要修改前往公司内网地址的网关就可以了，比如你需要访问的内网地址是10.192.<em>.</em>，而公司的内网网关是10.128.16.254，那么就这样写 ：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo route -n add -net 10.192.0.0 -netmask 255.255.0.0 10.128.16.254</span><br></pre></td></tr></table></figure>
+
+<p>2.公司里内外网是一个路由<br>此时需要有线网卡转发内网链接，无线网卡转发外网链接，写法如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo route -n add -net 10.192.0.0 -netmask 255.255.0.0  -interface en7</span><br></pre></td></tr></table></figure>
+
+<p>至此，应该是修改完成了，可以试一试，应该是确实是内外网都可以正常访问了</p>
+<p>用到了macOS里好用的小机器人  Automator<br>它在mac自带的工具里，我们打开它，选择应用程序，在第二列中选择运行AppleScript，随后我们就要在Automator中编写一段mac的自动化脚本。<br>替换程序中双引号部分和账号部分</p>
+<p><img src="https://i.loli.net/2019/04/17/5cb6ea9e85f4b.png" alt="a4.png"></p>
+<p>把我们刚刚编辑的内容都用系统管理员权限写入脚本，并保存成一个应用程序就可以了，以后每次开机，都只需要双击就可以重新恢复路由配置。如果还需要更简便一点的话，只需要在系统偏好，用户与群组中，登录项里加入这个Automator的小程序就可以了</p>
+<p><img src="https://i.loli.net/2019/04/17/5cb6f179eb8f8.png" alt="a5.png"></p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>双网卡上网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Wins和Mac系统下安装Python及PIP简单使用教程</title>
+    <url>/2019/04/13/Wins%E5%92%8CMac%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Python%E5%8F%8APIP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="Win下安装python3和pip"><a href="#Win下安装python3和pip" class="headerlink" title="Win下安装python3和pip"></a>Win下安装python3和pip</h1><h2 id="Python3安装"><a href="#Python3安装" class="headerlink" title="Python3安装"></a>Python3安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.python.org&#x2F;</span><br><span class="line">下载Python3安装包</span><br><span class="line">Win: https:&#x2F;&#x2F;www.python.org&#x2F;ftp&#x2F;python&#x2F;3.7.3&#x2F;python-3.7.3-amd64.exe</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/04/13/5cb1995531050.png" alt="img"></p>
+<p><img src="https://i.loli.net/2019/04/13/5cb199552664b.png" alt="img"></p>
+<p><img src="https://i.loli.net/2019/04/13/5cb19955323b4.png" alt="img"></p>
+<h2 id="Pip安装"><a href="#Pip安装" class="headerlink" title="Pip安装"></a>Pip安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip 是 Python 的软件包安装程序</span><br><span class="line"></span><br><span class="line">访问 http:&#x2F;&#x2F;zuoshouzz.github.io&#x2F;images&#x2F;get-pip.py 下载脚本 get-ip.py</span><br><span class="line">访问 C:\Windows\system32 文件夹 ，打开 cmd 或者 cmd.exe</span><br><span class="line">cmd中输入 python get-pip.py路径即可</span><br><span class="line">cmd中输入 pip -V 查看pip版本</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/04/13/5cb1a2293ea58.png" alt="a5.png"></p>
+<h2 id="相关python库安装"><a href="#相关python库安装" class="headerlink" title="相关python库安装"></a>相关python库安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">安装一下模块 pillow，执行命令  pip install pillow</span><br><span class="line">安装一下模块 requests，执行命令  pip install requests</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;nodejs.org</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Mac下安装python3和pip"><a href="#Mac下安装python3和pip" class="headerlink" title="Mac下安装python3和pip"></a>Mac下安装python3和pip</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.python.org&#x2F;</span><br><span class="line">下载Python3安装包</span><br><span class="line">Mac: https:&#x2F;&#x2F;www.python.org&#x2F;ftp&#x2F;python&#x2F;3.7.3&#x2F;python-3.7.3-macosx10.9.pkg</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/04/13/5cb19c1499bbf.gif" alt="Untitled.gif"></p>
+<h2 id="PIP安装"><a href="#PIP安装" class="headerlink" title="PIP安装"></a>PIP安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip 是 Python 的软件包安装程序</span><br><span class="line"></span><br><span class="line">curl https:&#x2F;&#x2F;bootstrap.pypa.io&#x2F;get-pip.py -o get-pip.py</span><br><span class="line">py2: python get-pip.py --user</span><br><span class="line">py3: python3 get-pip.py --user</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/04/13/5cb1a35ace86d.png" alt="a7.png"></p>
+<h2 id="相关python库安装-1"><a href="#相关python库安装-1" class="headerlink" title="相关python库安装"></a>相关python库安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">需要安装一下模块</span><br><span class="line">pillow</span><br><span class="line">pyecharts</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装node-1"><a href="#安装node-1" class="headerlink" title="安装node"></a>安装node</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;nodejs.org</span><br></pre></td></tr></table></figure>
+
+<h1 id="Github项目介绍"><a href="#Github项目介绍" class="headerlink" title="Github项目介绍"></a>Github项目介绍</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;loadchange&#x2F;amemv-crawler</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>抖音</tag>
+        <tag>python安装</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浏览器代理管理工具SwitchyOmega</title>
+    <url>/2019/04/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%A3%E7%90%86%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7SwitchyOmega/</url>
+    <content><![CDATA[<h1 id="浏览器代理管理工具SwitchyOmega"><a href="#浏览器代理管理工具SwitchyOmega" class="headerlink" title="浏览器代理管理工具SwitchyOmega"></a>浏览器代理管理工具SwitchyOmega</h1><blockquote>
+<p>解决问题：</p>
+<p>​    1.代理间切换简便 (快速切换不同的代理 科学上网)</p>
+<p>​    2.方便管理多个代理  (操作简单，添加、删除、修改、查看)</p>
+</blockquote>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;FelisCatus&#x2F;SwitchyOmega&#x2F;releases</span><br><span class="line">下载 SwitchyOmega_Chromium.crx</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/04/09/5cacb0cd72edf.png" alt="img"></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">打开chrome浏览器，输入 chrome:&#x2F;&#x2F;extensions&#x2F; 并打开 开发模式</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/04/09/5cacb2b9c4b75.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.将 crx 格式安装包拖拽至浏览器(chrome最新版已不支持拖拽，可能报错程序包无效，建议使用第二种方式)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/04/09/5cacb278e6fd0.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2.打开 http:&#x2F;&#x2F;crxextractor.com&#x2F; 将crx上传，并下载源码到本地，然后解压rar压缩包</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/04/09/5cacb5ee75faa.png" alt="img"></p>
+<p><img src="https://i.loli.net/2019/04/09/5cacb5814408e.png" alt="img"></p>
+<p><img src="https://i.loli.net/2019/04/09/5cacb58124589.png" alt="img"></p>
+<p><img src="https://i.loli.net/2019/04/09/5cacb6ad18f6c.png" alt="img"></p>
+<h1 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h1><h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">抓取免费代理 http:&#x2F;&#x2F;proxylist.fatezero.org&#x2F; 筛选响应时间较短的代理，将响应IP、端口、协议进行添加即可</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/04/12/5cb048c160da8.png" alt="a1.png"></p>
+<p><img src="https://i.loli.net/2019/04/12/5cb048c184482.png" alt="a2.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mac、win 开启小飞机 添加本地socket5代理 127.0.0.1 1080 ，使用代理</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/04/12/5cb0496925764.png" alt="a3.png"></p>
+<h2 id="懒人操作"><a href="#懒人操作" class="headerlink" title="懒人操作"></a>懒人操作</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">选择使用 系统代理模式</span><br></pre></td></tr></table></figure>
+
+<h2 id="情景模式"><a href="#情景模式" class="headerlink" title="情景模式"></a>情景模式</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">添加情景自动切换，直接连接 or 代理连接</span><br><span class="line">规则列表网址 https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;gfwlist&#x2F;gfwlist&#x2F;master&#x2F;gfwlist.txt</span><br><span class="line">匹配规则使用代理，没匹配使用直接连接</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/04/12/5cb04a609561c.png" alt="a4.png"></p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>代理工具</tag>
+      </tags>
+  </entry>
+</search>
