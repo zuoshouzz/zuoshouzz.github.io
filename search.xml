@@ -4,6 +4,7 @@
     <title>安卓远程控制-完整版</title>
     <url>/2019/12/02/%E5%AE%89%E5%8D%93%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6-%E5%AE%8C%E6%95%B4%E7%89%88/</url>
     <content><![CDATA[<h1 id="安卓远程控制-完整版"><a href="#安卓远程控制-完整版" class="headerlink" title="安卓远程控制-完整版"></a>安卓远程控制-完整版</h1><h2 id="安卓远程控制-上"><a href="#安卓远程控制-上" class="headerlink" title="安卓远程控制-上"></a>安卓远程控制-上</h2><p><a href="https://zuoshouzz.github.io/2019/07/14/%E5%AE%89%E5%8D%93%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6-%E4%B8%8A/">https://zuoshouzz.github.io/2019/07/14/%E5%AE%89%E5%8D%93%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6-%E4%B8%8A/</a></p>
+<a id="more"></a>
 <h2 id="生成后门文件失败"><a href="#生成后门文件失败" class="headerlink" title="生成后门文件失败"></a>生成后门文件失败</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">有朋友在Windows下生成后门文件失败，我排查了一下，可能是由于没有下载jdk导致的，也就是说没有安装java环境</span><br><span class="line"></span><br><span class="line">jdk下载：https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;cn&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151-zhs.html</span><br><span class="line">可能需要登录，邮箱注册一下就行了</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.loli.net/2019/10/25/1qSr9hIOnkDvbBp.png" alt="cc1.png"></p>
@@ -96,6 +97,8 @@
     <title>Goole Hacking 谷歌搜索引擎高级技巧</title>
     <url>/2019/09/22/Google-Hacking%20%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<h1 id="Goole-Hacking-谷歌搜索引擎高级技巧"><a href="#Goole-Hacking-谷歌搜索引擎高级技巧" class="headerlink" title="Goole Hacking 谷歌搜索引擎高级技巧"></a>Goole Hacking 谷歌搜索引擎高级技巧</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">参考：</span><br><span class="line">https:&#x2F;&#x2F;ephrain.net&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;08&#x2F;BH_EU_05-Long-1.pdf</span><br><span class="line">https:&#x2F;&#x2F;www.exploit-db.com&#x2F;google-hacking-database</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">zuoshou</span><br><span class="line">inurl:admin</span><br><span class="line">inurl:&quot;admin.php&quot;</span><br><span class="line">&quot;@youtube.com&quot;</span><br><span class="line">intitle:&quot;左手zuoshou&quot;</span><br><span class="line">身份证 filetype:xls</span><br><span class="line">site:zuoshouzz.github.io</span><br><span class="line">site:zuoshouzz.github.io -aa.zuoshouzz.github.io</span><br><span class="line">intitle:&quot;Index Of&quot;</span><br><span class="line">link:zuoshouzz.github.io</span><br><span class="line">inurl:admin filetype:php</span><br><span class="line">inurl:8080 -intext:8080</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
 
 <p><img src="https://i.loli.net/2019/09/19/eJFZvML3sCh8HnD.png" alt="g1.png"></p>
 <p><img src="https://i.loli.net/2019/09/19/dDWuCKZTAXRz2oi.png" alt="g2.png"></p>
@@ -117,7 +120,7 @@
 <p><a href="https://jsproxy.ga/" target="_blank" rel="noopener">https://jsproxy.ga/</a></p>
 <p><a href="https://jsproxy-demo.cf" target="_blank" rel="noopener">https://jsproxy-demo.cf</a></p>
 <p><a href="https://github.com/EtherDream/jsproxy" target="_blank" rel="noopener">https://github.com/EtherDream/jsproxy</a></p>
-]]></content>
+<a id="more"></a>]]></content>
   </entry>
   <entry>
     <title>安卓远程控制-上</title>
@@ -125,6 +128,8 @@
     <content><![CDATA[<p>项目地址：<a href="https://github.com/AhMyth/AhMyth-Android-RAT" target="_blank" rel="noopener">https://github.com/AhMyth/AhMyth-Android-RAT</a></p>
 <p>下载地址：<a href="https://github.com/AhMyth/AhMyth-Android-RAT/releases" target="_blank" rel="noopener">https://github.com/AhMyth/AhMyth-Android-RAT/releases</a></p>
 <p><img src="https://i.loli.net/2019/07/14/5d2a9dc4f2a7625537.png" alt="c1.png"></p>
+<a id="more"></a>
+
 <p>32位系统下载win32版本</p>
 <p>64位系统下载win64版本</p>
 <p>一直下一步安装即可</p>
@@ -161,6 +166,8 @@
 <p>奈菲影视：<a href="https://www.nfmovies.com/" target="_blank" rel="noopener">https://www.nfmovies.com/</a></p>
 <p>gimy：<a href="https://gimy.tv/" target="_blank" rel="noopener">https://gimy.tv/</a></p>
 <p>91美剧网：<a href="https://91mjw.com/" target="_blank" rel="noopener">https://91mjw.com/</a></p>
+<a id="more"></a>
+
 ]]></content>
       <categories>
         <category>技术分享</category>
@@ -175,6 +182,8 @@
     <content><![CDATA[<h1 id="海豚湾机场之初体验"><a href="#海豚湾机场之初体验" class="headerlink" title="海豚湾机场之初体验"></a>海豚湾机场之初体验</h1><h2 id="网站地址"><a href="#网站地址" class="headerlink" title="网站地址"></a>网站地址</h2><p>永久访问域名: 海豚湾.COM(需全局代理模式访问) </p>
 <p>当前域名: HITUN.IO</p>
 <h2 id="注册地址"><a href="#注册地址" class="headerlink" title="注册地址"></a>注册地址</h2><p><a href="https://hitun.io//auth/register?affid=53861" target="_blank" rel="noopener">https://hitun.io//auth/register?affid=53861</a></p>
+<a id="more"></a>
+
 <h2 id="充值"><a href="#充值" class="headerlink" title="充值"></a>充值</h2><p>支持 支付宝、微信、充值码</p>
 <h2 id="套餐购买"><a href="#套餐购买" class="headerlink" title="套餐购买"></a>套餐购买</h2><p>1.套餐分为月、季、年及大小海豚</p>
 <h2 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h2><p>香港、日本、台湾、深圳、美国、新加坡</p>
@@ -197,6 +206,8 @@
     <url>/2019/05/13/%E6%80%8E%E4%B9%88%E5%88%B6%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84SSR%E8%AE%A2%E9%98%85%E5%9C%B0%E5%9D%80-%E8%AF%A6%E8%A7%A3%E7%AF%87/</url>
     <content><![CDATA[<h1 id="怎么制作自己的SSR订阅地址-详解篇"><a href="#怎么制作自己的SSR订阅地址-详解篇" class="headerlink" title="怎么制作自己的SSR订阅地址?详解篇"></a>怎么制作自己的SSR订阅地址?详解篇</h1><p>1.访问ssr订阅地址<a href="https://raw.githubusercontent.com/ssrsub/ssr/master/ssrsub" target="_blank" rel="noopener">https://raw.githubusercontent.com/ssrsub/ssr/master/ssrsub</a>(复制页面返回内容A)</p>
 <p>2.打开base64解码网站<a href="https://www.base64decode.org/" target="_blank" rel="noopener">https://www.base64decode.org/</a>（其他base64解码网站也可以），将A粘贴进去，然后点击解码；</p>
+<a id="more"></a>
+
 <p>3.可以看到一条条ssr的链接地址，复制几条出来做测试；</p>
 <p>4.制作第一种SSR订阅地址(修改 group 字段，变成自己的分组 ，自己的订阅)</p>
 <p>5.制作第二种SSR订阅地址(直接汇总ssr链接，然后base64编码)</p>
@@ -224,6 +235,8 @@
     <content><![CDATA[<p>Centos7 64位</p>
 <p>搬瓦工注册链接：<a href="https://bwh88.net/aff.php?aff=24655" target="_blank" rel="noopener">https://bwh88.net/aff.php?aff=24655</a></p>
 <p>Vultr注册链接：<a href="https://www.vultr.com/?ref=8049244-4F" target="_blank" rel="noopener">https://www.vultr.com/?ref=8049244-4F</a></p>
+<a id="more"></a>
+
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">yum install firewalld firewall-config</span><br><span class="line">vi &#x2F;usr&#x2F;lib&#x2F;firewalld&#x2F;services&#x2F;ssh.xml</span><br><span class="line">firewall-cmd --permanent --add-service&#x3D;ssh</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">systemctl start firewalld</span><br><span class="line"></span><br><span class="line">yum install wget</span><br><span class="line">wget -N --no-check-certificate https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;zuoshouzz&#x2F;zuoshouzz.github.io&#x2F;master&#x2F;doc&#x2F;ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br><span class="line"></span><br><span class="line">vi &#x2F;usr&#x2F;lib&#x2F;firewalld&#x2F;services&#x2F;ss.xml</span><br><span class="line"></span><br><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;service&gt;</span><br><span class="line">  &lt;short&gt;SS&lt;&#x2F;short&gt;</span><br><span class="line">  &lt;description&gt;Shadowsocks port</span><br><span class="line">  &lt;&#x2F;description&gt;</span><br><span class="line">  &lt;port protocol&#x3D;&quot;tcp&quot; port&#x3D;&quot;443&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;service&gt;</span><br><span class="line"></span><br><span class="line">firewall-cmd --permanent --add-service&#x3D;ss</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;tcp-nanqinlang&#x2F;general&#x2F;master&#x2F;General&#x2F;CentOS&#x2F;bash&#x2F;tcp_nanqinlang-1.3.2.sh &amp;&amp; bash tcp_nanqinlang-1.3.2.sh</span><br><span class="line"></span><br><span class="line">wget http:&#x2F;&#x2F;download.strongswan.org&#x2F;strongswan.tar.gz &amp;&amp; tar zxvf strongswan* </span><br><span class="line">cd strongswan*</span><br><span class="line">yum install -y make gcc gmp-devel openssl openssl-devel</span><br><span class="line">.&#x2F;configure --sysconfdir&#x3D;&#x2F;etc --disable-sql --disable-mysql --disable-ldap --enable-dhcp --enable-eap-identity --enable-eap-mschapv2 --enable-md4 --enable-xauth-eap --enable-eap-peap --enable-eap-md5 --enable-openssl --enable-shared --enable-unity --enable-eap-tls   --enable-eap-ttls --enable-eap-tnc --enable-eap-dynamic --enable-addrblock --enable-radattr --enable-nat-transport --enable-kernel-netlink --enable-kernel-libipsec</span><br><span class="line">make &amp;&amp; sudo make install</span><br><span class="line"></span><br><span class="line">vi &#x2F;etc&#x2F;ipsec.conf</span><br><span class="line"></span><br><span class="line">config setup</span><br><span class="line">    uniqueids&#x3D;never</span><br><span class="line">conn IPsec_xauth_psk</span><br><span class="line">    keyexchange&#x3D;ikev1</span><br><span class="line">    left&#x3D;SERVER</span><br><span class="line">    leftauth&#x3D;psk</span><br><span class="line">    leftsubnet&#x3D;0.0.0.0&#x2F;0</span><br><span class="line">    right&#x3D;%any</span><br><span class="line">    rightauth&#x3D;psk</span><br><span class="line">    rightauth2&#x3D;xauth</span><br><span class="line">    rightsourceip&#x3D;10.0.0.0&#x2F;24</span><br><span class="line">    auto&#x3D;add</span><br><span class="line"></span><br><span class="line">conn %default</span><br><span class="line">    keyexchange&#x3D;ikev1</span><br><span class="line">    dpdaction&#x3D;hold</span><br><span class="line">    dpddelay&#x3D;600s</span><br><span class="line">    dpdtimeout&#x3D;5s</span><br><span class="line">    lifetime&#x3D;24h</span><br><span class="line">    ikelifetime&#x3D;240h</span><br><span class="line">    rekey&#x3D;no</span><br><span class="line">    left&#x3D;SERVER</span><br><span class="line">    leftsubnet&#x3D;0.0.0.0&#x2F;0</span><br><span class="line">    leftcert&#x3D;vpnHostCert.pem</span><br><span class="line">    leftsendcert&#x3D;always</span><br><span class="line">    right&#x3D;%any</span><br><span class="line">    rightdns&#x3D;8.8.8.8</span><br><span class="line">    rightsourceip&#x3D;10.0.0.0&#x2F;24</span><br><span class="line">    </span><br><span class="line">vi &#x2F;etc&#x2F;ipsec.secrets</span><br><span class="line"></span><br><span class="line">: PSK &quot;zuoshou&quot; # 这里 SECRET 可随意替换成你想要的密钥</span><br><span class="line">zuoshou : XAUTH &quot;zuoshouzz.github.io&quot;</span><br><span class="line"></span><br><span class="line">ipsec start</span><br><span class="line">vi &#x2F;usr&#x2F;lib&#x2F;firewalld&#x2F;services&#x2F;ipsec.xml</span><br><span class="line"></span><br><span class="line">firewall-cmd --permanent --add-service&#x3D;ipsec</span><br><span class="line">firewall-cmd --permanent --add-masquerade</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">vi &#x2F;etc&#x2F;rc.local</span><br><span class="line"></span><br><span class="line">ipsec start</span><br><span class="line"></span><br><span class="line">chmod +x &#x2F;etc&#x2F;rc.local</span><br></pre></td></tr></table></figure>
 
 ]]></content>
@@ -241,7 +254,7 @@
     <url>/2019/04/28/%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E7%81%AB%E5%B1%B1%E5%B0%8F%E8%A7%86%E9%A2%91%E6%97%A0%E6%B0%B4%E5%8D%B0%E8%A7%86%E9%A2%91-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BC%9A%E4%BD%A0/</url>
     <content><![CDATA[<p>项目地址：<a href="https://github.com/loadchange/hotsoon-crawler" target="_blank" rel="noopener">https://github.com/loadchange/hotsoon-crawler</a></p>
 <p>和抖音方法差不多，如果不清楚可以看一下以前的视频介绍</p>
-]]></content>
+<a id="more"></a>]]></content>
       <categories>
         <category>技术分享</category>
       </categories>
@@ -255,6 +268,8 @@
     <content><![CDATA[<h1 id="Vultr与搬瓦工VPS产品对比哪家强？左手告诉你"><a href="#Vultr与搬瓦工VPS产品对比哪家强？左手告诉你" class="headerlink" title="Vultr与搬瓦工VPS产品对比哪家强？左手告诉你"></a>Vultr与搬瓦工VPS产品对比哪家强？左手告诉你</h1><p><img src="https://i.loli.net/2019/04/25/5cc1d8faa21f3.png" alt="b7.png"></p>
 <p>搬瓦工注册链接：<a href="https://bwh88.net/aff.php?aff=24655" target="_blank" rel="noopener">https://bwh88.net/aff.php?aff=24655</a></p>
 <p>Vultr注册链接：<a href="https://www.vultr.com/?ref=8049244-4F" target="_blank" rel="noopener">https://www.vultr.com/?ref=8049244-4F</a></p>
+<a id="more"></a>
+
 <p>结论：</p>
 <p>1.希望安全、稳定的选择搬瓦工</p>
 <p>2.需要经常更换vps节点或者ip的选择Vultr</p>
@@ -275,6 +290,8 @@
     <url>/2019/04/22/%E5%85%8D%E8%B4%B9%E8%8E%B7%E5%8F%96SS-SSR%E8%8A%82%E7%82%B9%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
     <content><![CDATA[<h1 id="免费获取SS-SSR节点科学上网"><a href="#免费获取SS-SSR节点科学上网" class="headerlink" title="免费获取SS/SSR节点科学上网"></a>免费获取SS/SSR节点科学上网</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ss&#x2F;ssr免费节点</span><br><span class="line">https:&#x2F;&#x2F;www.ssrtool.com&#x2F;tool&#x2F;share_ssr</span><br><span class="line">https:&#x2F;&#x2F;free-ss.site&#x2F;</span><br><span class="line">----</span><br><span class="line">ssr订阅地址</span><br><span class="line">https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ssrsub&#x2F;ssr&#x2F;master&#x2F;ssrsub</span><br><span class="line">https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;AmazingDM&#x2F;sub&#x2F;master&#x2F;ssrshare.com</span><br><span class="line">https:&#x2F;&#x2F;yzzz.ml&#x2F;freessr&#x2F;</span><br><span class="line">https:&#x2F;&#x2F;aoxuaudaadaoeu.herokuapp.com&#x2F;subscribe</span><br><span class="line">---</span><br><span class="line">搬瓦工注册：https:&#x2F;&#x2F;bwh88.net&#x2F;aff.php?aff&#x3D;24655</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
+
 ]]></content>
       <categories>
         <category>技术分享</category>
@@ -291,6 +308,7 @@
     <url>/2019/04/19/%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85SS-SSR-Shadowsocks%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
     <content><![CDATA[<h1 id="一键安装SS-SSR-Shadowsocks科学上网"><a href="#一键安装SS-SSR-Shadowsocks科学上网" class="headerlink" title="一键安装SS/SSR Shadowsocks科学上网"></a>一键安装SS/SSR Shadowsocks科学上网</h1><h1 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h1><p>CentOS 6+ /Debian 6+ / Ubuntu 14.04 + </p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">搬瓦工注册链接：https:&#x2F;&#x2F;bwh88.net&#x2F;aff.php?aff&#x3D;24655</span><br><span class="line"></span><br><span class="line">Centos7 清空防火墙</span><br><span class="line">iptables -F</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 
 <h1 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h1><p>切换至root账号，如果已经是root账号登录，忽略此步骤</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
@@ -328,6 +346,8 @@
     <url>/2019/04/17/Macbook%E5%88%A9%E7%94%A8%E5%8F%8C%E7%BD%91%E5%8D%A1%E5%90%8C%E6%97%B6%E8%BF%9E%E5%86%85%E5%A4%96%E7%BD%91/</url>
     <content><![CDATA[<h1 id="Macbook利用双网卡同时连内外网"><a href="#Macbook利用双网卡同时连内外网" class="headerlink" title="Macbook利用双网卡同时连内外网"></a>Macbook利用双网卡同时连内外网</h1><p>情景：很多单位为了安全，需要使用网线连接内网，此时不能连接外网，无线可以连接外网，却又不能完成部分在内网才能完成的操作。</p>
 <p>连接双网卡<br>en7 –&gt; 有线网卡<br>en0 –&gt; 无线网卡<br>插上网线之后，我的表是这样的，当前的状况是连的上内网，连不上外网</p>
+<a id="more"></a>
+
 <h1 id="查看一下路由表"><a href="#查看一下路由表" class="headerlink" title="查看一下路由表"></a>查看一下路由表</h1><p>打开终端，输入</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">netstat -rt</span><br></pre></td></tr></table></figure>
 
@@ -360,6 +380,7 @@
     <title>Wins和Mac系统下安装Python及PIP简单使用教程</title>
     <url>/2019/04/13/Wins%E5%92%8CMac%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Python%E5%8F%8APIP%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="Win下安装python3和pip"><a href="#Win下安装python3和pip" class="headerlink" title="Win下安装python3和pip"></a>Win下安装python3和pip</h1><h2 id="Python3安装"><a href="#Python3安装" class="headerlink" title="Python3安装"></a>Python3安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.python.org&#x2F;</span><br><span class="line">下载Python3安装包</span><br><span class="line">Win: https:&#x2F;&#x2F;www.python.org&#x2F;ftp&#x2F;python&#x2F;3.7.3&#x2F;python-3.7.3-amd64.exe</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 
 <p><img src="https://i.loli.net/2019/04/13/5cb1995531050.png" alt="img"></p>
 <p><img src="https://i.loli.net/2019/04/13/5cb199552664b.png" alt="img"></p>
@@ -400,6 +421,8 @@
 <p>​    1.代理间切换简便 (快速切换不同的代理 科学上网)</p>
 <p>​    2.方便管理多个代理  (操作简单，添加、删除、修改、查看)</p>
 </blockquote>
+<a id="more"></a>
+
 <h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;FelisCatus&#x2F;SwitchyOmega&#x2F;releases</span><br><span class="line">下载 SwitchyOmega_Chromium.crx</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.loli.net/2019/04/09/5cacb0cd72edf.png" alt="img"></p>

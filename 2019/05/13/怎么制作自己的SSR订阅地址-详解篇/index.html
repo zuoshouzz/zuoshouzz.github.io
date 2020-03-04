@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"zuoshouzz.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="怎么制作自己的SSR订阅地址?详解篇1.访问ssr订阅地址https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ssrsub&#x2F;ssr&#x2F;master&#x2F;ssrsub(复制页面返回内容A) 2.打开base64解码网站https:&#x2F;&#x2F;www.base64decode.org&#x2F;（其他base64解码网站也可以），将A粘贴进去，然后点击解码； 3.可以看到一条条ssr的链接地址，复制几条出来做">
+  <meta name="description" content="怎么制作自己的SSR订阅地址?详解篇1.访问ssr订阅地址https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ssrsub&#x2F;ssr&#x2F;master&#x2F;ssrsub(复制页面返回内容A) 2.打开base64解码网站https:&#x2F;&#x2F;www.base64decode.org&#x2F;（其他base64解码网站也可以），将A粘贴进去，然后点击解码；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="怎么制作自己的SSR订阅地址?详解篇">
 <meta property="og:url" content="http://zuoshouzz.github.io/2019/05/13/%E6%80%8E%E4%B9%88%E5%88%B6%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84SSR%E8%AE%A2%E9%98%85%E5%9C%B0%E5%9D%80-%E8%AF%A6%E8%A7%A3%E7%AF%87/index.html">
 <meta property="og:site_name" content="左 手">
-<meta property="og:description" content="怎么制作自己的SSR订阅地址?详解篇1.访问ssr订阅地址https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ssrsub&#x2F;ssr&#x2F;master&#x2F;ssrsub(复制页面返回内容A) 2.打开base64解码网站https:&#x2F;&#x2F;www.base64decode.org&#x2F;（其他base64解码网站也可以），将A粘贴进去，然后点击解码； 3.可以看到一条条ssr的链接地址，复制几条出来做">
+<meta property="og:description" content="怎么制作自己的SSR订阅地址?详解篇1.访问ssr订阅地址https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ssrsub&#x2F;ssr&#x2F;master&#x2F;ssrsub(复制页面返回内容A) 2.打开base64解码网站https:&#x2F;&#x2F;www.base64decode.org&#x2F;（其他base64解码网站也可以），将A粘贴进去，然后点击解码；">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-05-13T14:36:08.000Z">
-<meta property="article:modified_time" content="2019-05-13T14:56:35.644Z">
+<meta property="article:modified_time" content="2020-03-04T08:17:58.030Z">
 <meta property="article:author" content="左 手">
 <meta property="article:tag" content="ssr">
 <meta name="twitter:card" content="summary">
@@ -229,10 +229,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-05-13 22:36:08 / 修改时间：22:56:35" itemprop="dateCreated datePublished" datetime="2019-05-13T22:36:08+08:00">2019-05-13</time>
+              <time title="创建时间：2019-05-13 22:36:08" itemprop="dateCreated datePublished" datetime="2019-05-13T22:36:08+08:00">2019-05-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-04 16:17:58" itemprop="dateModified" datetime="2020-03-04T16:17:58+08:00">2020-03-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -270,6 +276,8 @@
       
         <h1 id="怎么制作自己的SSR订阅地址-详解篇"><a href="#怎么制作自己的SSR订阅地址-详解篇" class="headerlink" title="怎么制作自己的SSR订阅地址?详解篇"></a>怎么制作自己的SSR订阅地址?详解篇</h1><p>1.访问ssr订阅地址<a href="https://raw.githubusercontent.com/ssrsub/ssr/master/ssrsub" target="_blank" rel="noopener">https://raw.githubusercontent.com/ssrsub/ssr/master/ssrsub</a>(复制页面返回内容A)</p>
 <p>2.打开base64解码网站<a href="https://www.base64decode.org/" target="_blank" rel="noopener">https://www.base64decode.org/</a>（其他base64解码网站也可以），将A粘贴进去，然后点击解码；</p>
+<a id="more"></a>
+
 <p>3.可以看到一条条ssr的链接地址，复制几条出来做测试；</p>
 <p>4.制作第一种SSR订阅地址(修改 group 字段，变成自己的分组 ，自己的订阅)</p>
 <p>5.制作第二种SSR订阅地址(直接汇总ssr链接，然后base64编码)</p>
